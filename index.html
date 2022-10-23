@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="index.css">
+  <title>Frontend Mentor | Notifications page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body onload="displayMessages()">
+<div class="maincontainercls">
+  <div class="notificationHeaderCls">
+    <div class="notificationCounterCls">
+      <h4>Notifications</h4>
+      <span class="count">3</span> 
+    </div>
+    <label for="" class="markasreadcls">Mark all as read</label>
+  </div>
+  <div class="notificationmaincls">
+  <div class="notificaionCls">
+    <img src="assets\images\avatar-mark-webber.webp" alt="" class="images">
+    <p class="box">
+     <label for="" class="person">Mark Webber</label>
+     <span class="info">reacted to your recent post</span>
+     <span class="post">My first tournament today!</span>
+     <span class="group"></span>
+     <span class="dot"></span>
+     <span class="timeline">1m ago</span>
+     <span class="message"></span>
+     </p>
+    </div>
+  <div class="notificaionCls">
+    <img src="assets\images\avatar-angela-gray.webp" alt="" class="images">
+    <p class="box">
+      <label for="" class="person">Angela Gray</label>
+      <span class="info">followed you</span>
+      <span class="post"></span>
+      <span class="group"></span>
+      <span class="dot"></span> 
+      <span class="timeline">5m ago</span>
+      <span class="message"></span>
+    </p>   
+  </div>
+  <div class="notificaionCls">
+    <img  src="assets\images\avatar-jacob-thompson.webp" alt="" class="images">
+    <p class="box">
+      <label for="" class="person">Jacob Thompson</label>
+      <span class="info">has joined your group</span>
+      <span class="post"></span>
+      <span class="group">Chess Club</span>
+      <span class="dot"></span>
+      <span class="timeline">1 day ago</span>
+      <span class="message"></span>
+    </p>
+  </div>
+  <div class="notificaionCls">
+    <img src="assets\images\avatar-rizky-hasanuddin.webp" alt="" class="images">
+    <p class="box">
+      <label for="" class="person">Rizky Hasanuddin</label>
+      <span class="info">sent you a private message</span>
+      <span class="post"></span>
+      <span class="group"></span>
+      <span class="dot"></span>
+      <span class="timeline">5 days ago</span>
+      <span class="message">Hello,thanks for setting up the Chess Club. I've been a member for a few weeks now and 
+        I'm already having lots of fun and improving my game.</span>
+    </p>
+  </div>
+  <div class="notificaionCls">
+    <img src="assets\images\avatar-kimberly-smith.webp" alt="" class="images">
+    <p class="box">
+      <label for="" class="person">Kimberly Smith</label>
+      <span class="info">commented on your picture</span>
+      <span class="post"></span>
+      <span class="group"></span>
+      <span class="dot"></span>
+      <span class="timeline">1 week ago</span>
+    <span class="message"></span>
+    </p>
+    <img src="assets\images\image-chess.webp" alt="" class="images">
+  </div>
+  <div class="notificaionCls">
+    <img src="assets\images\avatar-nathan-peterson.webp" alt="" class="images">
+    <p class="box">
+      <label for="" class="person">Nathan Peterson</label>
+      <span class="info">reacted to your recent post </span>
+      <span class="post">5 end-game strategies to increase your win rate</span>
+      <span class="group"></span>
+      <span class="dot"></span>
+      <span class="timeline">2 weeks ago</span>
+    <span class="message"></span>
+    </p>
+  </div>
+  <div class="notificaionCls">
+    <img src="assets\images\avatar-anna-kim.webp" alt=""  class="images">
+    <p class="box">
+      <label for="" class="person">Anna Kim</label>
+      <span class="info">left the group</span>
+      <span class="post"></span>
+      <span class="group">Chess Club</span>
+      <span class="dot"></span>
+      <span class="timeline">2 weeks ago</span>
+    <span class="message"></span>
+    </p>
+  </div>  
+  </div>
+</div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Rajesh</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
