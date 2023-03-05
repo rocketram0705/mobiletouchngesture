@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front End Developer Task</title>
+    <style>
+        *{padding: 0;margin: 0;box-sizing: border-box;}
+        body{font-family: Verdana, Geneva, Tahoma, sans-serif;height:100%;width:100%;display:flex;justify-content: center;align-items: center;}
+        .containerCls{position:relative;width:100%;height: 720px;background-image: url('bg-cover.png');background-position: center;background-size: cover;background-repeat: no-repeat;max-width:1152px;}
+	    .upperSection{position:relative;width:auto;height:20%;}
+        .header{position:relative;width:auto;padding:15px 10px;text-indent: 10px;}
+        .header::before{position: absolute;content:"";left: 0;top:0;width:10px;height:100%;background-color: black;z-index:1;}
+        .headerElement{font-size:25px;width:100%;color:black;}
+        .description{position:relative;font-size:16px;width:75%;padding:15px 10px;}
+        .lowersectionCls{position: relative;height:80%;}
+        .imageSlidesContainerCls{position: relative;display: flex;justify-content:space-around;align-items: center;width:auto;height:100%;padding:0px 10px;}
+        .imageContainer{position: relative;width:33%;height:60%;display: flex;flex-direction: column;justify-content:start;align-items: center;transition: all 0.5s;}
+        .imageContainer:hover{cursor: pointer;}
+        .imageContainer > * {pointer-events: none;transition: all 0.5s;}
+        .wheelimages{position: relative;height:50%;}
+        .contentDescription{position: relative;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+        .contentDescription > p {text-align: center;}
+        .wheelName{position: relative;font-weight: bold;font-size:14px;}
+        .additonal{font-size: 14px;}
+        .abbrevation{font-weight: bold;font: optional;font-size: 16px;}
+        .element {position: relative;	height: 96%;	width: 33%;	justify-content: center;
+	    align-items: center;	background-image: url('wheel-bg.jpg');	background-position: center;
+	    background-repeat: no-repeat;	background-size: cover;	padding-bottom:8%;display:flex;border:2px solid #e0e0e0;border-radius: 5px;transition: all 0.5s;}
+	.leftarrow{
+	height: 30px;
+	position: absolute;
+	top: 50%;
+	left: 0%;
+	font-size: 30px;
+    transform:translateY(-50%);
+	cursor:pointer;
+}
+.rightarrow {
+	height: 30px;
+	position: absolute;
+	top: 50%;
+	right: 0%;
+    transform: translateY(-50%);
+	font-size: 30px;
+	cursor:pointer;
+}
+@media screen and (max-width:360px){
+    *{user-select: none;}
+    .containerCls{width:100%;height: auto;}
+    .upperSection{height: auto;}
+    .description{width: auto;}
+    .lowersectionCls{height: 500px;position: relative;}
+    .imageSlidesContainerCls{height: 100%;overflow: hidden;}
+    .imageContainer{width:auto;height:100%;display: none;}
+    .imageContainer.active{display:flex !important;}
+    .leftarrow{display:none;}
+}
+</style>
+</head>
+<body>
+    <div class="containerCls">
+        <section class="upperSection">
+            <div class="header">
+                <p class="headerElement">WHEELS</p>
+            </div>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam cum rerum laborum accusantium porro? Voluptate veniam accusantium adipisci mollitia.
+            </p>
+        </section>
+        <section class="lowersectionCls">
+            <div class="imageSlidesContainerCls">
+                <div class="imageContainer active" id="one">
+                    <img src="wgu.png" alt="wheelimage" class="wheelimages">
+                    <div class="contentDescription">
+                        <p class="wheelName">17- INCH CAST ALUMINIUM WHEEL, FULLY PAINTED SILVER LITHO</p>
+                        <p class="addtitonal">Standard on Touring FWD</p>
+                        <p class="abbrevation">(WGU)</p>
+                    </div>
+                </div>
+                <div class="imageContainer" id="two">
+                    <img src="wjr.png" alt="wheelimage" class="wheelimages">
+                    <div class="contentDescription">
+                        <p class="wheelName">17- INCH CAST ALUMINIUM DIAMOND CUT WITH BALTIC GRAY POCKETS</p>
+                        <p class="addtitonal">Standard on Touring L FWD/Hybrid and Touring Hybrid</p>
+                        <p class="abbrevation">(WJR)</p>
+                    </div>
+                </div>
+                <div class="imageContainer" id="three">
+                    <img src="wp6.png" alt="wheelimage" class="wheelimages">
+                    <div class="contentDescription">
+                        <p class="wheelName">18- INCH CAST ALUMINIUM WHEEL WITH FORESHADOW FINISH</p>
+                        <p class="addtitonal">included with S Appearance Package on Touring Hybrid, Touring L Hybrid and Limited Hybrid</p>
+                        <p class="abbrevation">(WP6)</p>
+                    </div>
+                </div>
+            </div>
+            <span class="leftarrow" id="leftslide"  onclick="performShowHideFunction()">&#10094;</span>
+	        <span class="rightarrow" id="rightslide" onclick="performShowHideFunctionZero()">&#10095;</span>
+        </section>
+        <section class="dummy">
+            <img src="bg-cover.png" alt="" style="height:100px;width:300px;">
+            <img src="wgu.png" alt="" style="height:100px;width: 300px;">
+            <img src="wp6.png" alt="" style="height:100px;width: 300px;">
+            <img src="wpf.png" alt=""style="height:100px;width: 300px;">
+        </section>
+    </div>
+    <script>
+        let startX = 0;
+        let startY = 0; 
+        let endX = 0;
+        let endY = 0;
+        let distX=0;
+        let distY=0;
+        function performShowHideFunctionZero(){
+            console.log("left swipe detected...");
+            let imagecont = document.querySelector('.active');
+            imagecont.nextElementSibling.classList.add('active');
+            imagecont.classList.remove('active');
+            document.getElementById('leftslide').style.display="block";
+            isEndOfImages = imagecont.nextElementSibling.nextElementSibling;
+            if(isEndOfImages == null){
+                document.getElementById('rightslide').style.display="none";
+            }
+        }
+        function performShowHideFunction(){
+            console.log("right swipe detected...");
+            let imagecont = document.querySelector('.active');
+            imagecont.previousElementSibling.classList.add('active');
+            imagecont.classList.remove('active');
+            document.getElementById('rightslide').style.display="block";
+            isEndOfImages = imagecont.previousElementSibling.previousElementSibling;
+            if(isEndOfImages== null){
+                document.getElementById('leftslide').style.display="none";
+            }
+        }
+        window.addEventListener('load',function(){
+            document.querySelector('.lowersectionCls').addEventListener('touchstart',function(ev){
+            //ev.preventDefault();
+            startX = ev.changedTouches[0].clientX;
+            startY = ev.changedTouches[0].clientY;
+            console.log("touch event stated at "+'<>>'+startX+'<>>>>>>'+startY);
+        });
+        document.querySelector('.lowersectionCls').addEventListener('touchmove',function(ev){
+           // ev.preventDefault();
+            console.log('x:'+ev.changedTouches[0].clientX+'and y:'+ev.changedTouches[0].clientY);
+        });
+        document.querySelector('.lowersectionCls').addEventListener('touchend',function(ev){
+            //ev.preventDefault();
+            endX=ev.changedTouches[0].clientX;
+            endY=ev.changedTouches[0].clientY;
+            console.log("touch event ended at"+endX+'<<>>>>'+endY);
+            distX =parseInt(startX - endX);
+            distY =parseInt(startY-endY);
+            console.log("distx:"+distX+" distY:"+distY);
+           if(distX != 0 && distY !=0 && distY > -20 && distY < 20){
+             if(distX < 0){
+                performShowHideFunctionZero();
+             }
+             else{
+                performShowHideFunction();
+             }
+           }
+        });
+        });
+        
+    </script>
+</body>
+</html>
